@@ -1,1 +1,1 @@
-require "schemata/hello_worlds.rb"
+require "schemata/users.rb"
