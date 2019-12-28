@@ -12,11 +12,11 @@ default: &default
 
 development:
   <<: *default
-  database: club_event_timeline_development
+  database: hugeman_development
 
 test:
   <<: *default
-  database: club_event_timeline_test
+  database: hugeman_test
 
 production:
   <<: *default
