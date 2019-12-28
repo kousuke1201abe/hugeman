@@ -38,12 +38,8 @@ jobs:
       - run:
           name: install dependencies
           command: |
-<<<<<<< HEAD
             gem install bundler
             bundle check --path=vendor/bundle || bundle install --path vendor/bundle --clean --jobs 4 --retry 3
-=======
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
->>>>>>> add circle ci config
             yarn install
 
       - save_cache:
