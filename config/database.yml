@@ -1,0 +1,22 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8
+  collation: utf8mb4_general_ci
+  pool: <%= ENV['DATABASE_POOL'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  port: <%= ENV['DATABASE_PORT'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: <%= ENV['DATABASE_SOCKET'] %>
+
+development:
+  <<: *default
+  database: club_event_timeline_development
+
+test:
+  <<: *default
+  database: club_event_timeline_test
+
+production:
+  <<: *default
