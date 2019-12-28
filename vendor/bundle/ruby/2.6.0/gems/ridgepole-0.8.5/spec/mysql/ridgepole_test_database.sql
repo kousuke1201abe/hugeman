@@ -1,2 +1,0 @@
-DROP DATABASE IF EXISTS `ridgepole_test`;
-CREATE DATABASE `ridgepole_test` DEFAULT CHARACTER SET utf8;
