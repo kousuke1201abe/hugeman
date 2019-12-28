@@ -62,6 +62,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.0)
     awesome_print (1.8.0)
+    bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
@@ -275,6 +276,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_decorator
+  bcrypt
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
