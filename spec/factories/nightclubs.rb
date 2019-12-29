@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :user_password_authentication do
-    name
+  factory :nightclubs do
+    name "test_club_A"
   end
 end
