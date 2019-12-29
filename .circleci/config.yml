@@ -54,6 +54,10 @@ jobs:
             - ~/.cache/yarn
 
       - run:
+          name: rubocop
+          command: RAILS_ENV=development bundle exec rubocop --only Lint/Debugger,Lint/DuplicateMethods,Lint/UnreachableCode,Lint/Void
+
+      - run:
           name: Wait for MySQL
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
 
