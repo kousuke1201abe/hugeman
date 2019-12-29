@@ -1,0 +1,97 @@
+# Ruby CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-ruby/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/ruby:2.6.5-stretch-node-browsers
+      - image: circleci/mysql:5.7
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - run: cp config/{database.ci,database}.yml
+      - run: echo 'export RAILS_ENV=test' >> $BASH_ENV
+
+      # install node and yarn
+      - run: sudo npm install -g n
+      - run: sudo n 12.5.0
+      - run: sudo npm install -g yarn@1.21.1
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      # Download and cache dependencies of node modules
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler
+            bundle check --path=vendor/bundle || bundle install --path vendor/bundle --clean --jobs 4 --retry 3
+            yarn install
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - save_cache:
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+            - ~/.cache/yarn
+
+      - run:
+          name: rubocop
+          command: RAILS_ENV=development bundle exec rubocop --only Lint/Debugger,Lint/DuplicateMethods,Lint/UnreachableCode,Lint/Void
+
+      - run:
+          name: Wait for MySQL
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
+
+      # Test db:seed
+      - run: RAILS_ENV=development bundle exec rake db:create
+      - run: bundle exec ridgepole -E development -c config/database.yml --apply
+      - run: RAILS_ENV=development bundle exec rake db:seed
+
+      # Database setup
+      - run: bundle exec rake db:create
+      - run: bundle exec ridgepole -E test -c config/database.yml --apply
+
+      # run tests!
+      - run:
+          name: run tests
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob 'spec/**/*_spec.rb' | circleci tests split --split-by=timings)"
+
+            bundle exec rspec --format progress \
+                            --format RspecJunitFormatter \
+                            --out /tmp/test-results/rspec.xml \
+                            --format progress \
+                            $TEST_FILES
+
+      # collect reports
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
