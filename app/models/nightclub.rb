@@ -1,0 +1,2 @@
+class Nightclub < ApplicationRecord
+end
