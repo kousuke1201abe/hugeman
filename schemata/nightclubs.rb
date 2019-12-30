@@ -2,7 +2,7 @@ create_table :nightclubs do |t|
   t.string :name, 
            null: false,
            index: {
-             unique: false,
-             name: :idx_events_1,
+             unique: true,
+             name: :idx_nightclubs_1,
            }
 end
