@@ -1,1 +1,7 @@
-Event.create(nightclub_id: 1, event_name: "test_event", tag: "#test_tag")
+Nightclub.first.tap do |nightclub|
+  nightclub.find_or_create_by!(
+      name: ("test_event")
+) do |event|
+       event.tag = "#test tag"
+  end
+end

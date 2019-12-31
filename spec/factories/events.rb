@@ -1,9 +1,9 @@
 FactoryBot.define do
-  factory :events, class: Nightclub do
+  factory :events do
     nightclub
-    event_name { "test_evetnt_A" }
-    tag { "#test_tag_A" }
-    start_at { Time.now }
-    end_at { Time.now+60 }
+    sequence(:name) { |n| "test_event_name#{n}" }
+    sequence(:name) { |n| "#test_tag_#{n}" }
+    start_at { Time.zone.now }
+    end_at { Time.zone.now.since(1.day) }
   end
 end

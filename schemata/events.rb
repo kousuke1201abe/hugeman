@@ -2,31 +2,31 @@ create_table :events do |t|
   t.references :nightclub,
            null: false,
            index: {
-             unique: true,
-             name: :idx_nightclub_event_1,
+             unique: false,
+             name: :idx_events_1,
            }
-  t.string :event_name,
+  t.string :name,
            null: false,
            index: {
              unique: false,
+             name: :idx_events_2,
            }
   t.string :tag,
            null: false,
            index: {
              unique: false,
+             name: :idx_events_3,
            }
   t.datetime :start_at,
            null: false,
            index: {
              unique: false,
+             name: :idx_events_4,
            }
   t.datetime :end_at,
            null: false,
            index: {
              unique: false,
+             name: :idx_event_5,
            }
 end
-
-add_foreign_key :events,
-                :nightclubs,
-                name: :fk_events_1
