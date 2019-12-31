@@ -27,6 +27,6 @@ create_table :events do |t|
            null: false,
            index: {
              unique: false,
-             name: :idx_event_5,
+             name: :idx_events_5,
            }
 end

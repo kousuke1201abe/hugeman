@@ -1,6 +1,5 @@
 require "lib/monkey_patches/ridgepole.rb"
 require "schemata/users.rb"
-require "schemata/event/nightclubs.rb"
 require "schemata/user/password_authentications.rb"
 require "schemata/nightclubs.rb"
 require "schemata/artists.rb"
