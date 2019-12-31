@@ -1,1 +1,1 @@
-Artist.create(name: "test artist")
+Artist.create!(name: "test artist")
