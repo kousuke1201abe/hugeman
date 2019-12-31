@@ -1,1 +1,1 @@
-Nightclub.create!(name: "test club")
+Nightclub.create!(name: "test_club")
