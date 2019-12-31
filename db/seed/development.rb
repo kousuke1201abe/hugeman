@@ -1,3 +1,5 @@
 require_relative "development/users"
 require_relative "development/user/password_authentications"
 require_relative "development/artists"
+require_relative "development/nightclubs"
+require_relative "development/events"
