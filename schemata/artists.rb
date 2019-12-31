@@ -3,6 +3,6 @@ create_table :artists do |t|
            null: false,
            index: {
              unique: false,
-             name: :idx_users_1,
+             name: :idx_artists_1,
            }
 end
