@@ -6,11 +6,11 @@ create_table :event_organizers do |t|
            }
 
   t.reference :event
-          null: false,
-          index: {
-          unique: false,
-          name: :idx_event_organizers_1
-          }
+         null: false,
+         index: {
+         unique: false,
+         name: :idx_event_organizers_1
+         }
 end
 
 add_foreign_key :event_organizers,
