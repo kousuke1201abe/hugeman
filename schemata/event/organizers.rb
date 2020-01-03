@@ -17,6 +17,6 @@ add_foreign_key :event_organizers,
                 :events,
                 name: :fk_event_organizers_1
 
-add_foreign_key :event_id,
+add_foreign_key :event_organizers,
                 :events,
-                event_id: :fk_event_orgaznizers_1
+                name: :fk_event_orgaznizers_1
