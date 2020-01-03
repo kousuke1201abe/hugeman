@@ -5,7 +5,7 @@ create_table :event_organizers do |t|
            name: :idx_event_organizers_1
            }
 
-  t.references :event,
+  t.reference :event,
          null: false,
          index: {
          unique: false,
