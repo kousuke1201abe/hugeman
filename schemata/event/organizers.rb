@@ -9,7 +9,7 @@ create_table :event_organizers do |t|
          null: false,
          index: {
          unique: false,
-         name: :idx_event_organizers_1
+         name: :idx_event_organizers_id_1
          }
 end
 
