@@ -5,7 +5,7 @@ create_table :event_organizers do |t|
            name: :idx_event_organizers_1
            }
 
-  t.reference :event_id
+  t.reference :event,
          null: false,
          index: {
          unique: false,
@@ -20,4 +20,3 @@ add_foreign_key :event_organizers,
 add_foreign_key :event_id,
                 :events,
                 event_id: :fk_event_orgaznizers_1
-
