@@ -2,10 +2,10 @@ create_table :event_organizers do |t|
   t.string :name,
            null: false,
            index: {
-             name: :idx_event_organizers_1
+           name: :idx_event_organizers_1
            }
 
-  t.reference :event
+  t.reference :event_id
          null: false,
          index: {
          unique: false,
@@ -17,7 +17,7 @@ add_foreign_key :event_organizers,
                 :events,
                 name: :fk_event_organizers_1
 
-add_foreign_key :event_organizers,
+add_foreign_key :event_id,
                 :events,
                 event_id: :fk_event_orgaznizers_1
 
