@@ -16,7 +16,3 @@ end
 add_foreign_key :event_organizers,
                 :events,
                 name: :fk_event_organizers_1
-
-add_foreign_key :event_organizers,
-                :events,
-                name: :fk_event_orgaznizers_1
