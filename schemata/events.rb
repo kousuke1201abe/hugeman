@@ -30,3 +30,7 @@ create_table :events do |t|
              name: :idx_events_5,
            }
 end
+
+add_foreign_key :events,
+                :nightclubs,
+                name: :fk_events_1
