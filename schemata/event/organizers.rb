@@ -12,4 +12,4 @@ add_foreign_key :event_organizers,
 
 add_foreign_key :event_organizers,
                 :events,
-                id: :fk_event_id_1
+                id: :fk_event_orgaznizers_1
