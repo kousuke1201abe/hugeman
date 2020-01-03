@@ -1,0 +1,35 @@
+version: '3'
+services:
+  rails:
+    build: .
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app_name
+    ports:
+      - "3000:3000"
+    links:
+      - db
+    environment:
+      - RAILS_ENV=development
+      - DATABASE_POOL=5
+      - DATABASE_HOST=db
+      - DATABASE_PORT=3306
+      - DATABASE_USERNAME=root
+      - DATABASE_PASSWORD=password
+      - DATABASE_NAME=hugeman_development
+      - DATABASE_SOCKET=/tmp/mysql.sock
+  db:
+    image: mysql:5.7.28
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: hugeman_development
+    ports:
+      - "3306:3306"
+volumes:
+  mysql_data:
+    driver: local
+  rails_data:
+    driver: local
