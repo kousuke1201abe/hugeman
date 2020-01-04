@@ -1,13 +1,12 @@
-= form_with model: [:event_management, @event_management_user.user], local: true do |f|
+= form_with model: [:event_management, @event_management_user.user], url: event_management_sign_in_path, local: true do |f|
   div class="px-2 pt-6 pb-8 mx-4 flex flex-col my-4"
+    - if notice
+      div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 rounded" role="alert"
+        p class="font-bold" ログインに失敗しました
+        p class="text-sm" = notice
     div class="-mx-3 md:flex my-10"
       div class="md:w-full text-center text-white text-2xl font-bold"
         | HUGEMANへようこそ！
-    div class="-mx-3 md:flex mb-6"
-      div class="md:w-full px-3"
-        label class="block uppercase tracking-wide text-white text-xs font-bold mb-2"
-          | ユーザー名
-        = f.text_field :name, class: 'appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3'
     div class="-mx-3 md:flex mb-6"
       div class="md:w-full px-3"
         label class="block uppercase tracking-wide text-white text-xs font-bold mb-2"
@@ -20,7 +19,7 @@
         = f.password_field :password, class: 'appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3'
     div class="-mx-3 md:flex mb-6 mt-5"
       div class="md:w-full px-3 text-center"
-        = f.submit "登録", class: 'cursor-pointer w-full md:w-1/6 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 rounded-full'
+        = f.submit "ログイン", class: 'cursor-pointer w-full md:w-1/6 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 rounded-full'
     div class="-mx-3 md:flex mb-6 mt-5"
       div class="md:w-full px-3 text-center text-white text-sm"
-        = link_to "すでにアカウントをお持ちの方はこちら", event_management_sign_in_path
+        = link_to "アカウントをお持ちでない方はこちら", new_event_management_user_path
