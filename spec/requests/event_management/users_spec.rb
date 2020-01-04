@@ -9,4 +9,34 @@ RSpec.describe "EventManagement::UsersController", type: :request do
       expect(response).to have_http_status 200
     }
   end
+
+  describe "POST /event_management/users" do
+    subject { post event_management_users_path, params: { user: params } }
+
+    let!(:params) do
+      {
+        name: "user name",
+        email: "test@gmail.com",
+        password: "password",
+      }
+    end
+
+    context "with valid params" do
+      specify {
+        subject
+        #TODO リダイレクト先を指定
+      }
+    end
+
+    context "with invalid params" do
+      before do
+        params[:name] = ""
+      end
+
+      it "returns 400 and renders new" do
+        expect(subject).to eq 400
+        expect(subject).to render_template(:new)
+      end
+    end
+  end
 end

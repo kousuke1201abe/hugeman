@@ -1,9 +1,23 @@
-div class="max-w-sm rounded overflow-hidden shadow-lg"
-  div class="px-6 py-4"
-    div class="font-bold text-xl mb-2" The Coldest Sunset
-      p class="text-gray-700 text-base"
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-    div class="px-6 py-4"
-      span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2" #photography
-      span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2" #travel
-      span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700" #winter
+= form_with model: [:event_management, @event_management_user.user], local: true do |f|
+  div class="px-2 pt-6 pb-8 mx-4 flex flex-col my-4"
+    div class="-mx-3 md:flex my-10"
+      div class="md:w-full text-center text-white text-2xl font-bold"
+        | HUGEMANへようこそ！
+    div class="-mx-3 md:flex mb-6"
+      div class="md:w-full px-3"
+        label class="block uppercase tracking-wide text-white text-xs font-bold mb-2"
+          | ユーザー名
+        = f.text_field :name, class: 'appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3'
+    div class="-mx-3 md:flex mb-6"
+      div class="md:w-full px-3"
+        label class="block uppercase tracking-wide text-white text-xs font-bold mb-2"
+          | メールアドレス
+        = f.email_field :email, class: 'appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3'
+    div class="-mx-3 md:flex mb-6"
+      div class="md:w-full px-3"
+        label class="block uppercase tracking-wide text-white text-xs font-bold mb-2"
+          | パスワード
+        = f.password_field :password, class: 'appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3'
+    div class="-mx-3 md:flex mb-6 mt-5"
+      div class="md:w-full px-3 text-center"
+        = f.submit "登録", class: 'cursor-pointer w-full md:w-1/6 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 rounded-full'
