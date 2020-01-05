@@ -30,7 +30,8 @@ RSpec.describe EventManagement::UserSessionsController, type: :request do
 
       it "creates ::User::Session record" do
         expect(::User::Session.count).to eq(0)
-        subject
+        expect(subject).to eq 302
+        expect(subject).to redirect_to(event_management_events_path)
         expect(::User::Session.count).to eq(1)
       end
     end
@@ -49,9 +50,8 @@ RSpec.describe EventManagement::UserSessionsController, type: :request do
 
         it 'render error page' do
           expect(::User::Session.count).to eq(0)
-          subject
-          # expect(response).to have_http_status(200)
-          # expect(response.body).to include("Emailまたはパスワードが正しくありません")
+          expect(subject).to eq 400
+          expect(subject).to render_template(:new)
           expect(::User::Session.count).to eq(0)
         end
       end
@@ -69,9 +69,8 @@ RSpec.describe EventManagement::UserSessionsController, type: :request do
 
         it 'render error page' do
           expect(::User::Session.count).to eq(0)
-          subject
-          # expect(response).to have_http_status(200)
-          # expect(response.body).to include("Emailまたはパスワードが正しくありません")
+          expect(subject).to eq 400
+          expect(subject).to render_template(:new)
           expect(::User::Session.count).to eq(0)
         end
       end

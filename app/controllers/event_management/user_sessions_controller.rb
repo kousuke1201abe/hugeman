@@ -5,11 +5,11 @@ class EventManagement::UserSessionsController < EventManagement::ApplicationCont
 
   def create
     if sign_in(user_sessions_params)
-      # TODO: リダイレクト先を指定
+      redirect_to event_management_events_path
     else
       @event_management_user = ::EventManagement::User.new
       flash.now[:notice] = "メールアドレスまたはパスワードに誤りがあります"
-      render :new
+      render :new, status: 400
     end
   end
 

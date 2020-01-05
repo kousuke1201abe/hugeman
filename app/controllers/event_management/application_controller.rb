@@ -9,7 +9,7 @@ class EventManagement::ApplicationController < ApplicationController
 
   def confirm_signed_in
     if controller_path == "event_management/users" || controller_path == "event_management/user_sessions"
-      # TODO: リダイレクト先を指定
+      redirect_to event_management_events_path if signed_in?
     else
       redirect_to event_management_sign_in_path unless signed_in?
     end
