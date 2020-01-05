@@ -23,8 +23,8 @@ RSpec.describe "EventManagement::UsersController", type: :request do
 
     context "with valid params" do
       specify {
-        subject
-        #TODO リダイレクト先を指定
+        expect(subject).to eq 302
+        expect(subject).to redirect_to(event_management_events_path)
       }
     end
 

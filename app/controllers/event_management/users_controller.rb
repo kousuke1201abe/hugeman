@@ -5,7 +5,7 @@ class EventManagement::UsersController < EventManagement::ApplicationController
 
   def create
     event_management_user = EventManagement::User.create!(user_params)
-    # TODO: リダイレクト先を指定
+    redirect_to event_management_events_path
   rescue ActiveRecord::RecordInvalid
     @event_management_user = EventManagement::User.new
     render :new, status: 400
