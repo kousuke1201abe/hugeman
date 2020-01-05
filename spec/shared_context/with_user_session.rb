@@ -11,6 +11,6 @@ RSpec.shared_context "with user session" do
   end
 
   before do
-    post project_management_project_sign_in_path, params: { user: params }
+    post event_management_sign_in_path, params: { user: params }
   end
 end

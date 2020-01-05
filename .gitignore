@@ -39,3 +39,4 @@ yarn-debug.log*
 
 # Ignore thumbnail cache
 .DS_Store
+.env.test
