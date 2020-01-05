@@ -1,3 +1,3 @@
-class Event::ArtistIdentifying < ApplicationRecord
+class Event::Artistidentifying < ApplicationRecord
   belongs_to :event
 end
