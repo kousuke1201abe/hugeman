@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :nightclub do
-    name { "test_club_A" }
+    sequence(:name) { |n| "test_nightclib name#{n}" }
   end
 end
