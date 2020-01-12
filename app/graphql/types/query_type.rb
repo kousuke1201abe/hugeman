@@ -1,13 +1,11 @@
 module Types
   class QueryType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    field :events, Types::EventType.connection_type, null: false do
+      argument :name, String, required: false
+    end
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
+    def events(name:)
+      name ? Event.where(name: name) : Event.all
     end
   end
 end
