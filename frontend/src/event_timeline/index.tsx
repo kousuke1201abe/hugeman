@@ -1,5 +1,5 @@
 import React from 'react';
-import {render} from 'react-dom';
+import * as reactDom from 'react-dom';
 
 class App extends React.Component {
   render () {
@@ -8,7 +8,7 @@ class App extends React.Component {
 }
 
 const renderTimeline = () => {
-  render(
+  reactDom.render(
     <App/>,
     document.getElementById('root')
   );
