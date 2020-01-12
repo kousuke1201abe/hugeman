@@ -70,6 +70,10 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec ridgepole -E test -c config/database.yml --apply
 
+      # build webpack
+      - run:
+          name: run webpack build
+          command: yarn build
       # run tests!
       - run:
           name: run tests
