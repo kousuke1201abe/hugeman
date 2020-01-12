@@ -1,1 +1,1 @@
-User.create(name: "test user", email: "test@hugeman.com")
+User.find_or_create_by!(name: "test user", email: "test@hugeman.com")
