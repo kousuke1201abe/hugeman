@@ -12,6 +12,8 @@ gem 'ridgepole'
 gem 'slim-rails'
 gem 'active_decorator'
 gem 'bcrypt'
+gem 'graphql'
+gem 'graphql-batch'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -28,6 +30,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop'
+  gem 'graphiql-rails'
 end
 
 group :test do
@@ -40,3 +43,5 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'graphiql-rails', group: :development
