@@ -2,7 +2,8 @@
   "name": "club_event_timeline",
   "private": true,
   "scripts": {
-    "start-dev": "webpack-dev-server --hot --inline --config frontend/webpack.config.babel.js"
+    "start-dev": "webpack-dev-server --hot --inline --config frontend/webpack.config.babel.js",
+    "build": "webpack --config frontend/webpack.config.babel.js"
   },
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
