@@ -33,13 +33,13 @@ export default {
   mode: 'development',
   module: {
     rules: [
-      // {
-      //   test: /\.ts(x?)$/,
-      //   exclude: /node_modules/,
-      //   use: {
-      //     loader: 'ts-loader'
-      //   }
-      // },
+      {
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader'
+        }
+      },
       {
         test: /\.js?$/,
         exclude: /node_modules/,
