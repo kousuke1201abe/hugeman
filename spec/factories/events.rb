@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :event do
     nightclub
+    user
     sequence(:name) { |n| "test_event_name#{n}" }
     sequence(:tag) { |n| "#test_tag_#{n}" }
     start_at { Time.zone.now }

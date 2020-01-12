@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_one :password_authentication
   has_many :sessions, dependent: :destroy
+  has_many :events
 
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
