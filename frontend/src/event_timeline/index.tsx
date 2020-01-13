@@ -1,15 +1,24 @@
 import React from 'react';
 import * as reactDom from 'react-dom';
+import { ApolloProvider } from 'react-apollo';
+import { client } from '../../common/api/graphql/apolloClient';
+import { Hello } from '../event_timeline/components/hello';
 
-class App extends React.Component {
+class App extends React.Component<any, any> {
   render () {
-    return <p> Hello React!</p>;
+    return(
+      <div>
+        <Hello/>
+      </div>
+    );
   }
 }
 
 const renderTimeline = () => {
   reactDom.render(
-    <App/>,
+    <ApolloProvider client={client}>
+      <App/>
+    </ApolloProvider>,
     document.getElementById('root')
   );
 };
