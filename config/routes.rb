@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace :event_management do
     get :sign_in, controller: :user_sessions, action: :new
     post :sign_in, controller: :user_sessions, action: :create
+    post :sign_out, controller: :user_sessions, action: :sign_out
     resources :users, only: [:new, :create]
     resources :events, only: [:index, :show]
   end

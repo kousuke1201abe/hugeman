@@ -19,6 +19,11 @@ module EventManagement::Authenticatable
     end
   end
 
+  def sign_out!
+    session[:event_management_user_session_token] = nil
+    
+  end
+
   def signed_in?
     !!current_user
   end
