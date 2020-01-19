@@ -1,4 +1,8 @@
 class EventManagement::EventsController < EventManagement::ApplicationController
+  def new
+    @event_management_events = EventManagement::Event.new
+  end
+
   def index
     @event_management_events = EventManagement::Event.filter_user_by(@current_user.id)
   end
