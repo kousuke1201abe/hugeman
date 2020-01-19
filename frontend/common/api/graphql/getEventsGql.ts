@@ -1,8 +1,14 @@
 import gql from 'graphql-tag';
 
 export const getEventsGql = gql`
-  query($name: String, $last: Int) {
-    events(name: $name, last: $last) {
+  query($name: String) {
+    events(name: $name) {
+      edges {
+        cursor
+        node {
+          name
+        }
+      }
       nodes {
         name
         tag
@@ -11,6 +17,7 @@ export const getEventsGql = gql`
         nightclub {
           name
         }
+        totalCount
       }
       pageInfo {
         endCursor
@@ -30,12 +37,20 @@ export type Events = {
 
 export type Nodes = Node[];
 
+export type Edges = {
+  cursor: string;
+  node: {
+    name: string;
+  }
+}
+
 export type Node = {
   name: string;
   tag: string;
   startAt: string;
   endAt: string;
   nightclub: Nightclub;
+  totalCount: number;
 }
 
 type Edges = {
@@ -47,7 +62,7 @@ type Nightclub = {
   name: string;
 }
 
-type PageInfo = {
+export type PageInfo = {
   endCursor: string | null;
   hasNextPage: boolean;
   hasPreviousPage: boolean;
