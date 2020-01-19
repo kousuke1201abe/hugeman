@@ -8,4 +8,8 @@ class Event < ApplicationRecord
   has_many :artists, through: :artist_identifyings
 
   delegate :name, prefix: true, to: :nightclub
+
+  def total_count
+    Event.count
+  end
 end
