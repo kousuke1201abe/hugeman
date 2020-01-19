@@ -13,6 +13,12 @@ class EventManagement::UserSessionsController < EventManagement::ApplicationCont
     end
   end
 
+  def sign_out
+    sign_out!
+    redirect_to event_management_sign_in_path
+  end
+
+
   private
 
   def user_sessions_params

@@ -8,7 +8,9 @@ class EventManagement::ApplicationController < ApplicationController
   private
 
   def confirm_signed_in
-    if controller_path == "event_management/users" || controller_path == "event_management/user_sessions"
+    if action_name == "sign_out"
+      return
+    elsif controller_path == "event_management/users" || controller_path == "event_management/user_sessions"
       redirect_to event_management_events_path if signed_in?
     else
       redirect_to event_management_sign_in_path unless signed_in?
