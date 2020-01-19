@@ -1,5 +1,6 @@
 class EventManagement::Event < ApplicationModel
   attribute :event, default: -> { Event.new }
+  delegate :name, to: :event
 
   def self.filter_user_by(args)
     user = User.find(args)
