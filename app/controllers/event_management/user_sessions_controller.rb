@@ -15,6 +15,7 @@ class EventManagement::UserSessionsController < EventManagement::ApplicationCont
 
   def sign_out
     sign_out!
+    flash[:notice] = "ログアウトしました"
     redirect_to event_management_sign_in_path
   end
 

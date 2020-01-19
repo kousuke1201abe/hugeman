@@ -21,7 +21,7 @@ module EventManagement::Authenticatable
 
   def sign_out!
     session[:event_management_user_session_token] = nil
-    flash[:notice] = "ログアウトしました"
+    
   end
 
   def signed_in?
