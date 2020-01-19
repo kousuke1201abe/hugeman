@@ -6,4 +6,6 @@ class Event < ApplicationRecord
   has_many :organizers
   has_many :artist_identifyings
   has_many :artists, through: :artist_identifyings
+
+  delegate :name, prefix: true, to: :nightclub
 end
