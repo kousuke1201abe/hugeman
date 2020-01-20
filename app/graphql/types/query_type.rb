@@ -6,7 +6,7 @@ module Types
     field :hello, String, null: false
 
     def events(name:)
-      name ? Event.where(name: name) : Event.all
+      name ? Event.where(name: name) : Event.finished
     end
 
     def hello
