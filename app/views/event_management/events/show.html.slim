@@ -1,1 +1,18 @@
-h1 helloworlder!
+.max-w-xs.rounded.overflow-hidden.shadow-lg.my-2.m-auto
+  img.w-full[src="https://pbs.twimg.com/media/D0f5ExtV4AAG2A4.jpg" alt="Sunset in the mountains"]
+  .px-6.py-4.bg-gray-200.pb-0
+    .font-bold.text-xl.mb-2
+      = @event_management_event.name
+    ul.text-grey-darker.text-base
+      - @event_management_event.artists.each do |artist|
+        li.inline-block
+          = artist.name
+  .px-6.py-4.bg-gray-200
+    .bg-grey-lighter.rounded-full.px-3.py-1.text-sm.font-semibold.text-grey-darker.mr-2.pl-0
+      = @event_management_event.start_at
+    .bg-grey-lighter.rounded-full.px-3.py-1.text-sm.font-semibold.text-grey-darker.mr-2.pl-0
+      = @event_management_event.end_at
+    .bg-grey-lighter.rounded-full.px-3.py-1.text-sm.font-semibold.text-grey-darker.pl-0
+      = @event_management_event.tag
+    .bg-grey-lighter.rounded-full.px-3.py-1.text-sm.font-semibold.text-grey-darker.pl-0
+      = @event_management_event.nightclub.name

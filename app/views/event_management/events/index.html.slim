@@ -3,7 +3,7 @@ div class="px-2 pt-6 pb-8 mx-4 flex flex-col my-4 "
     | 登録済みのイベント
   div class="max-w-sm.rounded.overflow-hidden.shadow-lg text-gray-100"
     - @event_management_events.each do |event|
-      = link_to "https://www.google.com/", class: "px-2 pb-8 flex flex-col my-4"
+      = link_to event_management_event_path(event), class: "px-2 pb-8 flex flex-col my-4"
         div class="w-full  lg:w-11/12 xl:w-full px-1 bg-white py-5 lg:px-2 lg:py-2 tracking-wide"
           div class="flex flex-row lg:justify-start justify-center"
             div class="text-gray-700 font-medium text-sm text-center lg:text-left px-2"
