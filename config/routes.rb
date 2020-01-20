@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end
   post "/graphql", to: "graphql#execute"
   root "event_timelines#index"
-  get '/*path', to: 'event_timelines#index'
+  get '/*path', to: 'event_timelines#index', constraints: -> (req) { (req.fullpath =~ /^(?!.*event_management).*$/) }
 
   namespace :event_management do
     get :sign_in, controller: :user_sessions, action: :new
