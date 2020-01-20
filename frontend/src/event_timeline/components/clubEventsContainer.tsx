@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 
-export const ClubEventsContainer = ({clubEvents}: any) => {
+export const ClubEventsContainer: React.FC = () => {
   const useStyles = makeStyles(theme => ({
     clubEventsGrid: {
       paddingTop: theme.spacing(8),
