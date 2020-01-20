@@ -12,4 +12,8 @@ class Event < ApplicationRecord
   def total_count
     Event.count
   end
+
+  scope :finished, -> do
+    where(arel_attribute(:end_at).lt Time.zone.now)
+  end
 end

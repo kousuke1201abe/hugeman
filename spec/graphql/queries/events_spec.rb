@@ -10,7 +10,9 @@ describe "Types::EventType" do
       )
     end
 
-    let!(:events) { create_list(:event, 2) }
+    let!(:frozen_now) { Time.zone.now }
+    let!(:finished_event) { create(:event, end_at: Time.zone.now.ago(1.day)) }
+    let!(:not_finished_event) { create(:event, end_at: Time.zone.now.since(1.day)) }
 
     let!(:query_string) do
       <<~QUERY_STRING
@@ -45,20 +47,17 @@ describe "Types::EventType" do
     let!(:variables) { {} }
 
     it "returns query result correctly" do
-      payload = subject["data"]["events"]
-
-      expect(payload.size).to eq(3)
-      expect(payload["edges"][0]["node"]["name"]).to eq(events[0].name)
-      expect(payload["edges"][1]["node"]["name"]).to eq(events[1].name)
-      expect(payload["nodes"][0]["name"]).to eq(events[0].name)
-      expect(payload["nodes"][0]["tag"]).to eq(events[0].tag)
-      expect(payload["nodes"][0]["startAt"]).to eq(events[0].start_at.iso8601)
-      expect(payload["nodes"][0]["endAt"]).to eq(events[0].end_at.iso8601)
-      expect(payload["nodes"][1]["name"]).to eq(events[1].name)
-      expect(payload["nodes"][1]["tag"]).to eq(events[1].tag)
-      expect(payload["nodes"][1]["startAt"]).to eq(events[1].start_at.iso8601)
-      expect(payload["nodes"][1]["endAt"]).to eq(events[1].end_at.iso8601)
-      expect(payload["pageInfo"]).to be_present
+      travel_to frozen_now do
+        payload = subject["data"]["events"]
+        expect(payload.size).to eq(3)
+        expect(payload["nodes"].count).to eq(1)
+        expect(payload["edges"][0]["node"]["name"]).to eq(finished_event.name)
+        expect(payload["nodes"][0]["name"]).to eq(finished_event.name)
+        expect(payload["nodes"][0]["tag"]).to eq(finished_event.tag)
+        expect(payload["nodes"][0]["startAt"]).to eq(finished_event.start_at.iso8601)
+        expect(payload["nodes"][0]["endAt"]).to eq(finished_event.end_at.iso8601)
+        expect(payload["pageInfo"]).to be_present
+      end
     end
   end
 end
