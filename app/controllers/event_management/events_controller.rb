@@ -6,4 +6,8 @@ class EventManagement::EventsController < EventManagement::ApplicationController
   def show
     @event_management_event = EventManagement::Event.find(params[:id])
   end
+
+  def edit
+    @event_management_event = EventManagement::Event.find(params[:id])
+  end
 end
