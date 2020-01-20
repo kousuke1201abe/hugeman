@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     post :sign_in, controller: :user_sessions, action: :create
     post :sign_out, controller: :user_sessions, action: :sign_out
     resources :users, only: [:new, :create, :edit]
-    resources :events, only: [:index, :show, :edit]
+    resources :events, only: [:index, :show, :edit, :update]
   end
 end
