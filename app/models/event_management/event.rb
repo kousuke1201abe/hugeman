@@ -6,6 +6,7 @@ class EventManagement::Event < ApplicationModel
   delegate :end_at, to: :event
   delegate :tag, to: :event
   delegate :nightclub, to: :event
+  delegate :update!, to: :event
 
   def self.filter_user_by(args)
     user = User.find(args)
@@ -16,4 +17,7 @@ class EventManagement::Event < ApplicationModel
     new(event: Event.find(id))
   end
 
+  def update!(args)
+    event.update!(args)
+  end
 end
