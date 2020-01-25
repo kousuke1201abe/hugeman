@@ -16,4 +16,12 @@ class Event < ApplicationRecord
   scope :finished, -> do
     where(arel_attribute(:end_at).lt Time.zone.now)
   end
+
+  scope :scheduled, -> do
+    where(arel_attribute(:start_at).gt Time.zone.now)
+  end
+
+  scope :featured, -> do
+    where(arel_attribute(:end_at).gt Time.zone.now).where(arel_attribute(:start_at).lt Time.zone.now)
+  end
 end
