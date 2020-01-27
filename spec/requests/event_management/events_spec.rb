@@ -39,6 +39,7 @@ RSpec.describe "EventManagement::EventsController", type: :request do
     let!(:event) { create(:event) }
 
     specify {
+      subject
       expect(response).to have_http_status 200
     }
   end
