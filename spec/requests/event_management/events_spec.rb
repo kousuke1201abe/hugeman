@@ -32,4 +32,14 @@ RSpec.describe "EventManagement::EventsController", type: :request do
       expect(response).to have_http_status 200
     }
   end
+
+  describe "GET new_event_management_event_path" do
+    subject { get new_event_management_event_path }
+
+    let!(:event) { create(:event) }
+
+    specify {
+      expect(response).to have_http_status 200
+    }
+  end
 end
