@@ -16,9 +16,12 @@ class EventManagement::EventsController < EventManagement::ApplicationController
   
   end
 
+<<<<<<< HEAD
   def create
   
   end
 
 >>>>>>> イベント投稿画面の作成
+=======
+>>>>>>> 不使用箇所の削除
 end

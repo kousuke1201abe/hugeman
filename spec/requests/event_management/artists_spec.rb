@@ -6,8 +6,6 @@ RSpec.describe "EventManagement::ArtistsController", type: :request do
   describe "GET new_event_management_artist_path" do
     subject { get new_event_management_artist_path }
 
-    let!(:artist) { create(:artist) }
-
     specify {
       subject
       expect(response).to have_http_status 200

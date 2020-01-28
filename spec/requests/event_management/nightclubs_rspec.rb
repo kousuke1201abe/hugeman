@@ -6,8 +6,6 @@ RSpec.describe "EventManagement::NightclubsController", type: :request do
   describe "GET new_event_management_nightclub_path" do
     subject { get new_event_management_nightclub_path }
 
-    let!(:nightclub) { create(:nightclub) }
-
     specify {
       subject
       expect(response).to have_http_status 200
