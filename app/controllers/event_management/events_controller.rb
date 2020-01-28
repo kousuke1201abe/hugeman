@@ -7,21 +7,12 @@ class EventManagement::EventsController < EventManagement::ApplicationController
     @event_management_event = EventManagement::Event.find(params[:id])
   end
 
-<<<<<<< HEAD
+
   def edit
     @event_management_event = EventManagement::Event.find(params[:id])
   end
-=======
+
   def new
-  
   end
 
-<<<<<<< HEAD
-  def create
-  
-  end
-
->>>>>>> イベント投稿画面の作成
-=======
->>>>>>> 不使用箇所の削除
 end
