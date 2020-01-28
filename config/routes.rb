@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     resources :events, only: [:index, :show, :new, :edit]
     resources :nightclubs, only: [:new]
     resources :artists, only: [:new]
-    resources :users, only: [:new, :create]
 
   end
 end
