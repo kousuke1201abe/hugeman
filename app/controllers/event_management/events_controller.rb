@@ -12,11 +12,9 @@ class EventManagement::EventsController < EventManagement::ApplicationController
     @event_management_event = EventManagement::Event.find(params[:id])
   end
 
-<<<<<<< HEAD
   def new
   end
 
-=======
   def update
     @event_management_event = EventManagement::Event.find(params[:id])
     if @event_management_event.update!(event_management_event_params)
@@ -33,5 +31,4 @@ class EventManagement::EventsController < EventManagement::ApplicationController
       :end_at
     )
   end
->>>>>>> updateアクションをコントローラに追加
 end
