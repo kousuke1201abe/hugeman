@@ -11,7 +11,4 @@ class EventManagement::Event < ApplicationModel
     new(event: Event.find(id))
   end
 
-  def update!(args)
-    event.update!(args)
-  end
 end
