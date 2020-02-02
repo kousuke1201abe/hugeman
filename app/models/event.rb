@@ -9,6 +9,8 @@ class Event < ApplicationRecord
 
   delegate :name, prefix: true, to: :nightclub
 
+  validates :name, :tag, :start_at, :end_at, presence: true
+
   def total_count
     Event.count
   end
