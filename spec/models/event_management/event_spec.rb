@@ -4,13 +4,13 @@ RSpec.describe EventManagement::Event, type: :model do
   describe ".filter_user_by" do
       subject { EventManagement::Event.filter_user_by(args) }
     
-        let!(:user) { create(:user) }
-        let!(:event) { create(:event, user: user) }
-        let!(:args) { user.id }
+      let!(:user) { create(:user) }
+      let!(:event) { create(:event, user: user) }
+      let!(:args) { user.id }
 
-        it "returns events with login user" do
-          expect(subject).to eq(user.events)
-        end
+       it "returns events with login user" do
+         expect(subject).to eq(user.events)
+       end
       end
 
       describe "#update!" do
