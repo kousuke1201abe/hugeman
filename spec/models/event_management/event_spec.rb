@@ -44,8 +44,8 @@ RSpec.describe EventManagement::Event, type: :model do
       end
 
       specify do
-          expect(event).to be_valid
-          expect{ subject }.to raise_error(ActiveRecord::RecordInvalid)
+        expect(event).to be_valid
+        expect{ subject }.to raise_error(ActiveRecord::RecordInvalid)
       end
     end
 
