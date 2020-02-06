@@ -11,7 +11,7 @@ RSpec.describe EventManagement::Event, type: :model do
        it "returns events with login user" do
          expect(subject).to eq(user.events)
        end
-      end
+  end
 
   describe "#update!" do
     subject { event.update!(args) }
@@ -65,9 +65,9 @@ RSpec.describe EventManagement::Event, type: :model do
         args[:start_at] = ""
       end
 
-    specify do
-      expect(event).to be_valid
-      expect{ subject }.to raise_error(ActiveRecord::RecordInvalid)
+      specify do
+        expect(event).to be_valid
+        expect{ subject }.to raise_error(ActiveRecord::RecordInvalid)
       end
     end
 
@@ -76,10 +76,10 @@ RSpec.describe EventManagement::Event, type: :model do
         args[:end_at] = ""
       end
 
-    specify do
-      expect(event).to be_valid
-      expect{ subject }.to raise_error(ActiveRecord::RecordInvalid)
-    end
+      specify do
+        expect(event).to be_valid
+        expect{ subject }.to raise_error(ActiveRecord::RecordInvalid)
+      end
     end
   end
 end
