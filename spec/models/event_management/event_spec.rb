@@ -18,10 +18,10 @@ RSpec.describe EventManagement::Event, type: :model do
       let!(:event) { create(:event) }
       let!(:args) do
         {
-        name: "test name",
-        tag: "test tag",
-        start_at: Time.zone.parse("2018/12/01 00:00:00"),
-        end_at: Time.zone.parse("2018/12/02 00:00:00"),
+          name: "test name",
+          tag: "test tag",
+          start_at: Time.zone.parse("2018/12/01 00:00:00"),
+          end_at: Time.zone.parse("2018/12/02 00:00:00"),
         }
       end
 
@@ -72,7 +72,7 @@ RSpec.describe EventManagement::Event, type: :model do
       context "with blank end_at" do
         before do
           args[:end_at] = ""
-      end
+        end
 
       specify do
         expect(event).to be_valid
