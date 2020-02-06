@@ -2,15 +2,15 @@ require 'rails_helper'
 
 RSpec.describe EventManagement::Event, type: :model do
   describe ".filter_user_by" do
-      subject { EventManagement::Event.filter_user_by(args) }
-    
-      let!(:user) { create(:user) }
-      let!(:event) { create(:event, user: user) }
-      let!(:args) { user.id }
+    subject { EventManagement::Event.filter_user_by(args) }
 
-       it "returns events with login user" do
-         expect(subject).to eq(user.events)
-       end
+    let!(:user) { create(:user) }
+    let!(:event) { create(:event, user: user) }
+    let!(:args) { user.id }
+
+    it "returns events with login user" do
+      expect(subject).to eq(user.events)
+    end
   end
 
   describe "#update!" do
@@ -46,7 +46,7 @@ RSpec.describe EventManagement::Event, type: :model do
       specify do
           expect(event).to be_valid
           expect{ subject }.to raise_error(ActiveRecord::RecordInvalid)
-       end
+      end
     end
 
     context "with blank tag" do
