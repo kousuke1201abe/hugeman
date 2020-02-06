@@ -39,7 +39,7 @@ RSpec.describe EventManagement::Event, type: :model do
       context "with blank name" do
         before do
           args[:name] = ""
-      end
+        end
 
       specify do
           expect(event).to be_valid
