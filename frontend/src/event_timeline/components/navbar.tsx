@@ -7,6 +7,7 @@ import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -34,9 +35,9 @@ export const Navbar = () => {
           showLabels
           className={classes.root}
         >
-          <BottomNavigationAction label="開催中" icon={<EventAvailableIcon />} />
-          <BottomNavigationAction label="開催予定" icon={<ScheduleIcon />} />
-          <BottomNavigationAction label="アーカイブ" icon={<HistoryIcon />} />
+          <BottomNavigationAction component={Link} to="/" label="本日開催" icon={<EventAvailableIcon />} />
+          <BottomNavigationAction component={Link} to="/scheduled" label="開催予定" icon={<ScheduleIcon />} />
+          <BottomNavigationAction component={Link} to="/archived" label="アーカイブ" icon={<HistoryIcon />} />
         </BottomNavigation>
       </Toolbar>
     </AppBar>

@@ -5,7 +5,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Node } from '../../../common/api/graphql/getEventsGql'
+import { Node } from '../../../common/api/graphql/getFeaturedEventsGql'
 
 const useStyles = makeStyles(theme => ({
   card: {

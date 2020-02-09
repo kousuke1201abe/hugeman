@@ -15,7 +15,7 @@ class Event < ApplicationRecord
     Event.count
   end
 
-  scope :finished, -> do
+  scope :archived, -> do
     where(arel_attribute(:end_at).lt Time.zone.now)
   end
 
