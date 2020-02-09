@@ -1,7 +1,8 @@
 class EventManagement::Nightclub < ApplicationModel
+  attribute :nightclub
 
-def create!(args)
-  new(nightclub: Nightclub.create!(args))
-end
+  def self.create!(args)
+    new(nightclub: Nightclub.create!(args))
+  end
 
 end
