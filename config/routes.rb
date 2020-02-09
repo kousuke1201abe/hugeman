@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     post :sign_out, controller: :user_sessions, action: :sign_out
     resources :users, only: [:new, :create, :edit]
     resources :events, only: [:index, :show, :new, :edit, :update]
-    resources :nightclubs, only: [:new]
+    resources :nightclubs, only: [:new, :create]
+    resources :events, only: [:index, :show, :new, :edit]
     resources :artists, only: [:new]
 
   end
