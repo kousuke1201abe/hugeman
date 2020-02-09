@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
-export const getEventsGql = gql`
-  query($name: String) {
-    events(name: $name) {
+export const getFeaturedEventsGql = gql`
+  query {
+    featuredEvents {
       edges {
         cursor
         node {
