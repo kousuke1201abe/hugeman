@@ -27,7 +27,6 @@ RSpec.describe EventManagement::Nightclub, type: :model do
 
       specify do
         expect(Nightclub.count).to eq(0)
-        subject
         expect { subject }.to raise_error(ActiveRecord::RecordInvalid)
         expect(Nightclub.count).to eq(0)
       end
