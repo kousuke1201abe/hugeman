@@ -15,6 +15,6 @@ class EventManagement::NightclubsController < EventManagement::ApplicationContro
   private
 
   def nightclub_params
-    params.require(:name)
+    params.require(:nightclub).permit(:name)
   end
 end
