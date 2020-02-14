@@ -7,8 +7,8 @@ class EventManagement::NightclubsController < EventManagement::ApplicationContro
   def create
     begin
       event_management_nightclub = EventManagement::Nightclub.create!(nightclub_params)
-    rescue
-      redirect_to new_event_management_nightclub_path
+    rescue ActiveRecord::RecordInvalid => e
+      render new_event_management_nightclub_path, status: 400
     end
   end
 
