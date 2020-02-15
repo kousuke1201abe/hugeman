@@ -13,7 +13,7 @@ class Event < ApplicationRecord
   validates :name, :tag, :start_at, :end_at, presence: true
 
   def total_count
-    Event.count
+    Event.published.count
   end
 
   scope :published, -> do
