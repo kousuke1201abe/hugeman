@@ -9,19 +9,19 @@ module Types
     field :hello, String, null: false
 
     def events(name:)
-      name ? Event.where(name: name) : Event.archived
+      name ? Event.published.where(name: name) : Event.published.archived
     end
 
     def featured_events
-      Event.featured
+      Event.published.featured
     end
 
     def scheduled_events
-      Event.scheduled
+      Event.published.scheduled
     end
 
     def archived_events
-      Event.archived
+      Event.published.archived
     end
 
     def hello
