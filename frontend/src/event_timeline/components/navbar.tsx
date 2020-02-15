@@ -26,20 +26,18 @@ export const Navbar = () => {
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
-      <Toolbar>
-        <BottomNavigation
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-          showLabels
-          className={classes.root}
-        >
-          <BottomNavigationAction component={Link} to="/" label="本日開催" icon={<EventAvailableIcon />} />
-          <BottomNavigationAction component={Link} to="/scheduled" label="開催予定" icon={<ScheduleIcon />} />
-          <BottomNavigationAction component={Link} to="/archived" label="アーカイブ" icon={<HistoryIcon />} />
-        </BottomNavigation>
-      </Toolbar>
+      <BottomNavigation
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+        showLabels
+        className={classes.root}
+      >
+        <BottomNavigationAction component={Link} to="/" label="本日開催" icon={<EventAvailableIcon />} />
+        <BottomNavigationAction component={Link} to="/scheduled" label="開催予定" icon={<ScheduleIcon />} />
+        <BottomNavigationAction component={Link} to="/archived" label="アーカイブ" icon={<HistoryIcon />} />
+      </BottomNavigation>
     </AppBar>
   );
 }

@@ -11,7 +11,7 @@ export const ClubEvents = ({clubEvents}: ClubEvents) => {
   return (
     <Grid container spacing={4}>
       {clubEvents.map(clubEvent => (
-        <ClubEvent clubEvent={clubEvent}/>
+        <ClubEvent clubEvent={clubEvent} key={clubEvent.name}/>
       ))}
     </Grid>
   )
