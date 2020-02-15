@@ -6,6 +6,7 @@ class Event < ApplicationRecord
   has_many :organizers
   has_many :artist_identifyings
   has_many :artists, through: :artist_identifyings
+  has_one :publishing, dependent: :destroy
 
   delegate :name, prefix: true, to: :nightclub
 
@@ -13,6 +14,15 @@ class Event < ApplicationRecord
 
   def total_count
     Event.count
+  end
+
+  scope :published, -> do
+    joins(:publishing)
+  end
+
+  scope :unpublished, -> do
+    left_joins(:publishing)
+      .where(publishing: { id: nil })
   end
 
   scope :archived, -> do

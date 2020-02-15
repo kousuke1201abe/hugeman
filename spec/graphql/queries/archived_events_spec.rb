@@ -11,8 +11,9 @@ describe "Types::EventType" do
     end
 
     let!(:frozen_now) { Time.zone.now }
-    let!(:finished_event) { create(:event, start_at: Time.zone.now.ago(2.day), end_at: Time.zone.now.ago(1.day)) }
-    let!(:not_finished_event) { create(:event, start_at: Time.zone.now.since(1.day), end_at: Time.zone.now.since(2.day)) }
+    let!(:finished_event) { create(:event, :published, start_at: Time.zone.now.ago(2.day), end_at: Time.zone.now.ago(1.day)) }
+    let!(:not_finished_event) { create(:event, :published, start_at: Time.zone.now.since(1.day), end_at: Time.zone.now.since(2.day)) }
+    let!(:not_published_event) { create(:event, start_at: Time.zone.now.ago(2.day), end_at: Time.zone.now.ago(1.day)) }
 
     let!(:query_string) do
       <<~QUERY_STRING
