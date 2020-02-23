@@ -7,6 +7,7 @@ import { Navbar } from './components/navbar'
 import { FeaturedClubEventsContainer } from './components/featuredClubEventsContainer';
 import { ArchivedClubEventsContainer } from './components/archivedClubEventsContainer';
 import { ScheduledClubEventsContainer } from './components/scheduledClubEventsContainer';
+import { Timeline } from './components/timeline'
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
@@ -28,6 +29,7 @@ const renderTimeline = () => {
         <Route exact path='/' component={FeaturedClubEventsContainer} />
         <Route exact path='/scheduled' component={ScheduledClubEventsContainer} />
         <Route exact path='/archived' component={ArchivedClubEventsContainer} />
+        <Route path='/events/:id/timeline' component={Timeline} />
         <Navbar></Navbar>
       </Router>
       </MuiThemeProvider>
