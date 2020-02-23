@@ -35,6 +35,12 @@ create_table :events do |t|
              unique: false,
              name: :idx_events_6,
            }
+  t.string :url_code,
+           null: false,
+           index: {
+             unique: true,
+             name: :idx_events_7,
+           }
 end
 
 add_foreign_key :events,
