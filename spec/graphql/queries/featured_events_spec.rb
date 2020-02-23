@@ -31,6 +31,7 @@ describe "Types::EventType" do
             tag
             startAt
             endAt
+            urlCode
             nightclub {
               name
             }
@@ -57,6 +58,7 @@ describe "Types::EventType" do
         expect(payload["nodes"][0]["tag"]).to eq(holding_event.tag)
         expect(payload["nodes"][0]["startAt"]).to eq(holding_event.start_at.iso8601)
         expect(payload["nodes"][0]["endAt"]).to eq(holding_event.end_at.iso8601)
+        expect(payload["nodes"][0]["urlCode"]).to eq(holding_event.url_code)
         expect(payload["pageInfo"]).to be_present
       end
     end

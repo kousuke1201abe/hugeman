@@ -5,6 +5,7 @@ module Types
     field :tag, String, null: false
     field :start_at, GraphQL::Types::ISO8601DateTime, null: false
     field :end_at, GraphQL::Types::ISO8601DateTime, null: false
+    field :urlCode, String, null: false
     field :total_count, Integer, null: false
   end
 end
