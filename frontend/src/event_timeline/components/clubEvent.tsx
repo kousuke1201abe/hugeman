@@ -12,6 +12,9 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
+    '&:hover': {
+      opacity: "0.5",
+   },
   },
   cardMedia: {
     paddingTop: '56.25%', // 16:9
