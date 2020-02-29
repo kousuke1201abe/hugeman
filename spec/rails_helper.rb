@@ -34,6 +34,8 @@ require 'rspec/rails'
 #   exit 1
 # end
 RSpec.configure do |config|
+  ActiveJob::Base.queue_adapter = :test
+
   Dir[Rails.root.join('spec', 'shared_context', '**', '*.rb')].each { |f| require f }
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -71,4 +73,9 @@ RSpec.configure do |config|
   end
 
   config.include ActiveSupport::Testing::TimeHelpers
+
+  config.after :each do
+    ActiveJob::Base.queue_adapter.enqueued_jobs.clear
+    ActiveJob::Base.queue_adapter.performed_jobs.clear
+  end
 end
