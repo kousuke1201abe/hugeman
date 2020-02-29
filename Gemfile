@@ -6,7 +6,7 @@ ruby '2.6.5'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'mysql2', '>= 0.4.4'
 gem 'puma', '~> 4.3'
-gem 'jbuilder', '~> 2.7'
+gem 'jbuilder', '~> 2.10'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'ridgepole'
 gem 'slim-rails'
