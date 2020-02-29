@@ -35,13 +35,13 @@ RSpec.describe "EventManagement::NightclubsController", type: :request do
     end
     context 'with invalid params' do
       subject { post event_management_nightclubs_path, params: { nightclub: params } }
-
         let(:params) do
           { name: "", id: 1 }
         end
 
         it 'render error page' do
-          expect(subject).to eq 400
+          expect(Nightclub.count).to eq 0
+          expect(subject).to eq 302
           expect(subject).to render_template(:new)
         end
     end
