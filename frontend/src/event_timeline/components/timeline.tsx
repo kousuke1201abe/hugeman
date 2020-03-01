@@ -5,7 +5,8 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import { getEventGql, Event } from '../../../common/api/graphql/getEventGql';
+import { useQuery } from 'react-apollo';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,16 +19,15 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export const Timeline = () => {
+export const Timeline = (props: any) => {
   const classes = useStyles();
-  const tweets = [
-    { id: '1231591290741182470' },
-    { id: '1231581835861184512' },
-    { id: '1231587654388441088' },
-    { id: '933354946111705097' },
-    { id: '933354946111705097' },
-    { id: '933354946111705097' }
-  ]
+
+  const { loading, error, data } = useQuery<{ event: Event }>(getEventGql, {
+    variables: { urlCode: props.match.params.id }
+  },);
+  if (error || loading || !data) {
+    return <p>{error ? `Error!` : 'loading...'}</p>;
+  }
 
   return (
     <div>
@@ -40,8 +40,8 @@ export const Timeline = () => {
       </AppBar>
       <div style={{ padding: 20, marginTop: 50, marginBottom: 50 }}>
         <Grid container style={{margin: "auto", maxWidth: 500}}>
-          {tweets.map(tweet => (
-            <Tweet tweet={tweet} key={tweet.id}/>
+          {data.event.tweets.map(tweet => (
+            <Tweet tweet={tweet} key={tweet.code}/>
           ))}
         </Grid>
       </div>
