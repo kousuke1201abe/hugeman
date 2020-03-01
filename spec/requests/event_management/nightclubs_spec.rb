@@ -28,8 +28,8 @@ RSpec.describe "EventManagement::NightclubsController", type: :request do
     context 'with valid params' do
       subject { post event_management_nightclubs_path, params: { nightclub: params } }
       specify {
-        expect(subject).to eq 200
-        expect(subject).to render_template(:new)
+        expect(subject).to eq 302
+        expect(subject).to redirect_to("/event_management/artists/new")
         
       }
     end
