@@ -29,7 +29,8 @@ const renderTimeline = () => {
         <Route exact path='/' component={FeaturedClubEventsContainer} />
         <Route exact path='/scheduled' component={ScheduledClubEventsContainer} />
         <Route exact path='/archived' component={ArchivedClubEventsContainer} />
-        <Route path='/events/:id/timeline' component={Timeline} />
+        {/* <Route path='/events/:id/timeline' component={Timeline} /> */}
+        <Route path='/events/:id/timeline' render={props => <Timeline match={props.match}/>} />
         <Navbar></Navbar>
       </Router>
       </MuiThemeProvider>
