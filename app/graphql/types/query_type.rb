@@ -6,7 +6,9 @@ module Types
     field :featured_events, Types::EventType.connection_type, null: false
     field :scheduled_events, Types::EventType.connection_type, null: false
     field :archived_events, Types::EventType.connection_type, null: false
-    field :hello, String, null: false
+    field :event, Types::EventType, null: false do
+      argument :url_code, String, required: true
+    end
 
     def events(name:)
       name ? Event.published.where(name: name) : Event.published.archived
@@ -24,8 +26,8 @@ module Types
       Event.published.archived
     end
 
-    def hello
-      "Hello"
+    def event(url_code:)
+      Event.find_by!(url_code: url_code)
     end
   end
 end

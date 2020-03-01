@@ -7,5 +7,6 @@ module Types
     field :end_at, GraphQL::Types::ISO8601DateTime, null: false
     field :urlCode, String, null: false
     field :total_count, Integer, null: false
+    field :tweets, [Types::TweetType], null: true
   end
 end
