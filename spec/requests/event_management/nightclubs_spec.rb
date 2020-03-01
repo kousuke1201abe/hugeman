@@ -23,7 +23,7 @@ RSpec.describe "EventManagement::NightclubsController", type: :request do
 
   describe "POST event_management/nitghtclubs/:id" do
     let!(:params) do
-      { name: "test club", id: 1 }
+      { name: "test club" }
     end
     context 'with valid params' do
       subject { post event_management_nightclubs_path, params: { nightclub: params } }
@@ -36,7 +36,7 @@ RSpec.describe "EventManagement::NightclubsController", type: :request do
     context 'with invalid params' do
       subject { post event_management_nightclubs_path, params: { nightclub: params } }
         let(:params) do
-          { name: "", id: 1 }
+          { name: "" }
         end
 
         it 'render error page' do
