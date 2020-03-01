@@ -28,8 +28,8 @@ RSpec.describe "EventManagement::NightclubsController", type: :request do
     context 'with valid params' do
       subject { post event_management_nightclubs_path, params: { nightclub: params } }
       specify {
-        expect(subject).to eq 302
-        expect(subject).to render_template(new_event_management_artist_path)
+        expect(subject).to eq 200
+        expect(subject).to render_template(:new)
         
       }
     end
@@ -41,7 +41,7 @@ RSpec.describe "EventManagement::NightclubsController", type: :request do
 
         it 'render error page' do
           expect(Nightclub.count).to eq 0
-          expect(subject).to eq 302
+          expect(subject).to eq 400
           expect(subject).to render_template(:new)
         end
     end
