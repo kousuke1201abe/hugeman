@@ -3,7 +3,7 @@ RSpec.shared_context "with user session" do
   let!(:password) { "password" }
   let!(:user) { create(:user, email: email) }
   let!(:user_password_authentication) { create(:user_password_authentication, password: password, user: user) }
-  let!(:params) do
+  let!(:login_params) do
     {
       email: email,
       password: password,
@@ -11,6 +11,6 @@ RSpec.shared_context "with user session" do
   end
 
   before do
-    post event_management_sign_in_path, params: { user: params }
+    post event_management_sign_in_path, params: { user: login_params }
   end
 end

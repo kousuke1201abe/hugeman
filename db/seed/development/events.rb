@@ -5,6 +5,7 @@
       event.start_at = Time.zone.now
       event.end_at = Time.zone.now.since(1.day)
       event.nightclub = Nightclub.first
+      event.url_code = SecureRandom.uuid
     end
   end
 end
@@ -16,6 +17,7 @@ end
       event.start_at = Time.zone.now
       event.end_at = Time.zone.now.since(1.day)
       event.nightclub = Nightclub.first
+      event.url_code = SecureRandom.uuid
     end
   end
 end

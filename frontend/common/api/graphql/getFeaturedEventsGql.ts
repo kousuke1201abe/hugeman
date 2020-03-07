@@ -14,6 +14,7 @@ export const getFeaturedEventsGql = gql`
         tag
         startAt
         endAt
+        urlCode
         nightclub {
           name
         }
@@ -49,6 +50,7 @@ export type Node = {
   tag: string;
   startAt: string;
   endAt: string;
+  urlCode: string;
   nightclub: Nightclub;
   totalCount: number;
 }
