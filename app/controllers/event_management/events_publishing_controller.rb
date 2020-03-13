@@ -1,6 +1,6 @@
 class EventManagement::EventsPublishingController < EventManagement::ApplicationController
   def create
-
+    
   end
 
   private
