@@ -13,8 +13,8 @@ class EventManagement::ArtistsController < EventManagement::ApplicationControlle
 
   private
 
-  def nightclub_params
-    params.require(:nightclub).permit(:name)
+  def artist_params
+    params.require(:artist).permit(:name)
   end
 
 end
