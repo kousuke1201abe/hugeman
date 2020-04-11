@@ -27,8 +27,8 @@ RSpec.describe EventManagement::Artist, type: :model do
 
       specify do
         expect(Artist.count).to eq(0)
-        expect { subject }.to raise_error(ActiveRecord::RecordInvalid)
-        expect(Artist.count).to eq(0)
+        subject
+        expect(Artist.count).to eq(1)
       end
     end
   end
