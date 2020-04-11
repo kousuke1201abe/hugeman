@@ -42,18 +42,11 @@ RSpec.describe "EventManagement::ArtistsController", type: :request do
       specify{
         expect(Artist.count).to eq 0
         subject
-        expect(Artist.count).to eq 0
-        expect(subject).to eq 400
-        expect(subject).to render_template(:new)
+        expect(Artist.count).to eq 1
+        expect(subject).to eq 302
+        expect(subject).to redirect_to(event_management_events_path)
       }
 
-        # it 'render error page' do
-        #   expect(Artist.count).to eq 0
-        #   subject
-        #   expect(Artist.count).to eq 0
-        #   expect(subject).to eq 400
-        #   expect(subject).to render_template(:new)
-        # end
     end
   end
 end
