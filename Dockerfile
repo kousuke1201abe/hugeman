@@ -29,3 +29,5 @@ ADD Gemfile /App/Gemfile
 ADD Gemfile.lock /App/Gemfile.lock
 RUN bundle install
 ADD . /App
+
+EXPOSE 3000
