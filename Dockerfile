@@ -25,9 +25,13 @@ RUN apt-get update && apt-get install -y mariadb-client --no-install-recommends 
 
 RUN mkdir /App
 WORKDIR /App
-ADD Gemfile /App/Gemfile
-ADD Gemfile.lock /App/Gemfile.lock
+
+COPY Gemfile /App/Gemfile
+COPY Gemfile.lock /App/Gemfile.lock
+RUN gem update --system && gem install bundler:1.17.3
 RUN bundle install
-ADD . /App
+COPY . /App
 
 EXPOSE 3000
+
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
