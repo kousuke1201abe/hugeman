@@ -20,14 +20,14 @@ RUN curl -SL https://deb.nodesource.com/setup_12.x | bash
 RUN apt-get install -y nodejs
 RUN apt-get update && apt-get install -y mariadb-client --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
+RUN gem install bundler
 
+RUN mkdir /app
+WORKDIR /app
 
-
-RUN mkdir /App
-WORKDIR /App
-ADD Gemfile /App/Gemfile
-ADD Gemfile.lock /App/Gemfile.lock
+ADD Gemfile /app/Gemfile
+ADD Gemfile.lock /app/Gemfile.lock
 RUN bundle install
-ADD . /App
+ADD . /app
 
 EXPOSE 3000
