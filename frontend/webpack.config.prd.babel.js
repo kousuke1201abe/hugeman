@@ -25,7 +25,7 @@ const entries = targets.reduce((entries, targetPath) => {
   };
 }, {});
 
-const urlLoaderPublicPath = 'http://localhost:1212'
+const urlLoaderPublicPath = `https://s3-hugeman-statics.s3-ap-northeast-1.amazonaws.com`;
 const outputPublicPath = '/';
 const outputFileName = `[name]-bundle-[hash]`;
 
