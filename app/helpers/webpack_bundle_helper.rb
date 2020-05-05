@@ -21,7 +21,7 @@ module WebpackBundleHelper
   end
 
   def public_bundle_path(entry)
-    ["http", "://", "localhost:1212", manifest.fetch(entry)].join
+    [ENV['HUGEMAN_FRONT_PROTOCOL'], "://", ENV['HUGEMAN_FRONT_HOST'], manifest.fetch(entry)].join
   end
 
   private
